@@ -1,0 +1,77 @@
+<html>
+<head>
+    <link rel="stylesheet" href="lola.css">
+</head>
+<body>
+    <div id="lola">
+        <div>
+            <input type="text" id="username" placeholder="Enter email"><br><br>
+            <input type="password" id="password" placeholder="Enter password">
+        </div>
+
+        <div>
+            <button id="login">Log in</button>
+        </div>
+
+        <div>
+            <p>New user?? 
+                <button id="signup">Sign up</button>
+            </p>
+        </div>
+
+        <p id="msg" style="color:red;"></p>
+    </div>
+
+    <script>
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const loginBtn = document.getElementById('login');
+        const signupBtn = document.getElementById('signup');
+        const msg = document.getElementById('msg');
+
+        const backendURL = 'http://localhost:3000';
+
+        // Login button
+        loginBtn.addEventListener('click', async () => {
+            const res = await fetch(`${backendURL}/signin`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: username.value,
+                    password: password.value
+                })
+            });
+
+            const data = await res.json();
+
+            if(res.ok){
+                localStorage.setItem('token', data.token); // store JWT token
+                window.location.href = 'congrats.html'; // redirect on success
+            } else {
+                msg.textContent = data.msg || 'Login failed';
+            }
+        });
+
+        // Signup button
+        signupBtn.addEventListener('click', async () => {
+            const res = await fetch(`${backendURL}/signup`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: username.value,
+                    password: password.value
+                })
+            });
+
+            const data = await res.json();
+
+            if(res.ok){
+                msg.style.color = 'green';
+                msg.textContent = 'Signup successful! You can now log in.';
+            } else {
+                msg.textContent = data.msg || 'Signup failed';
+            }
+        });
+    </script>
+</body>
+</html>
