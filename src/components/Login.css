@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #39bf90, #4ea8de);
+}
+
+/* Login Card */
+.login-card {
+  background: rgba(135, 214, 182, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(85, 79, 79, 0.2);
+  width: 320px;
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 40px;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+/* Heading */
+.login-card h2 {
+  margin-bottom: 0.3rem;
+  color: #ebe5e5;
+}
+
+.login-card p {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #181818;
+  font-weight: 600;
+}
+
+/* Input fields */
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+  font-weight: 350;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #7bccb4;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+/* Options (Remember me + Forgot) */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.options a {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  background: #3ec9a7;
+  color: #332b2b;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #629fe6;
+}
+
+/* Footer support */
+.support {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #000000;
+}
+
+.support a {
+  color: #000000;
+  text-decoration: none;
+}
